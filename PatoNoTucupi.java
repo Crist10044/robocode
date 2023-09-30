@@ -14,25 +14,30 @@ public class PatoNoTucupi extends Robot
 		setBulletColor(new Color(5, 237, 245));
 		
 		while(true) {
-			ahead(100);
-			turnGunRight(360);
-			back(100);
-			turnGunRight(360);
+			turnGunRight(5);
 		}
 	}
 
 	public void onScannedRobot(ScannedRobotEvent e) {
 	
-		fire(1);
+		fire(3);
+		scan();
 	}
 
 	public void onHitByBullet(HitByBulletEvent e) {
+		
+		turnLeft(90);
+		ahead(30);
 	
-		back(10);
 	}
 	
 	public void onHitWall(HitWallEvent e) {
-
-		back(20);
+		turnLeft(13);
+		ahead(30);
 	}	
+	
+	public void onHitRobot(HitRobotEvent e){
+		fire(3);
+	}
+
 }
